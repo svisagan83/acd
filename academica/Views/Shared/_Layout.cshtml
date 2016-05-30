@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html ng-app="StudentApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/bundles/css")
+    <script src="~/assets/plugins/jquery/jquery-1.11.3.min.js"></script>
+    
+
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/app/stuControllers.js"></script>
+    <script src="~/Scripts/app/stuResources.js"></script>
+    <script src="~/Scripts/app/app.js"></script>
+    @Scripts.Render("~/bundles/angular")
+
+    @*<link href="/assets/css/theme.css" rel="stylesheet" />
+    <link href="/assets/css/sidebar.css" rel="stylesheet" />
+    <link href="/assets/css/blog.css" rel="stylesheet" />
+    <link href="/assets/css/responsive.css" rel="stylesheet" />
+    <link href="/assets/css/color.css" rel="stylesheet" />
+    <link href="/assets/css/debugging.css" rel="stylesheet" />
+    <link href="/assets/css/index.css" rel="stylesheet" />
+    <link href="/assets/css/master.css" rel="stylesheet" />
+    <link href="/assets/plugins/sliderpro/css/slider-pro.css" rel="stylesheet" />
+    <link href="/assets/plugins/isotope/isotope.css" rel="stylesheet" />
+    <link href="/assets/plugins/validation/validation-2.2.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/owl-carousel/owl.carousel.css" rel="stylesheet" />
+    <link href="/assets/plugins/owl-carousel/owl.transitions.css" rel="stylesheet" />
+    <link href="/assets/plugins/owl-carousel/owl.theme.css" rel="stylesheet" />
+    <link href="/assets/plugins/prettyphoto/css/prettyPhoto.css" rel="stylesheet" />
+    <link href="/assets/plugins/yamm/yamm.css" rel="stylesheet" />
+    <link href="/assets/plugins/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+    <link href="/assets/plugins/animate/animate.css" rel="stylesheet" />
+    <link href="/assets/plugins/jelect/main.css" rel="stylesheet" />
+    <link href="/assets/plugins/switcher/css/switcher.css" rel="stylesheet" />
+
+    <script src="/assets/plugins/jquery/jquery-1.11.3.min.js"></script>
+    <script src="/assets/js/jquery-migrate-1.2.1.js"></script>
+    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/modernizr.custom.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/plugins/nouislider/jquery.nouislider.all.min.js"></script>
+    <script src="/assets/plugins/sliderpro/js/jquery.sliderPro.min.js"></script>
+    <script src="/assets/plugins/isotope/jquery.isotope.min.js"></script>
+    <script src="/assets/plugins/prettyphoto/js/jquery.prettyPhoto.js"></script>
+    <script src="/assets/plugins/datetimepicker/jquery.datetimepicker.js"></script>
+    <script src="/assets/plugins/jelect/jquery.jelect.js"></script>
+    <script src="/assets/plugins/rendro-easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    <script src="/assets/plugins/switcher/js/bootstrap-select.js"></script>
+    <script src="/assets/plugins/switcher/js/dmss.js"></script>
+    <script src="/assets/js/cssua.min.js"></script>
+    <script src="/assets/js/wow.min.js"></script>
+    <script src="/assets/js/custom.min.js"></script>
+
+
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/app/stuControllers.js"></script>
+    <script src="/Scripts/app/stuResources.js"></script>
+    <script src="/Scripts/app/app.js"></script>
+    <script src="/Scripts/angular-resource.js"></script>
+    <script src="/Scripts/angular-route.js"></script>
+    *@
+
+
+</head>
+<body>
+    <!-- Loader -->
+    <div id="page-preloader"><span class="spinner"></span></div>
+    <!-- Loader end -->
+    <div class="layout-theme animated-css" data-header="sticky" data-header-top="200">
+        <div id="wrapper">
+            <!-- HEADER -->
+            <header class="header">
+                <div class="top-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="top-header__contacts"><i class="icon stroke icon-Phone2"></i>(123) 0800 12345</div>
+                                <div class="top-header__contacts"><i class="icon stroke icon-Mail"></i><a href="mailto:Info@academica.com">Info@academica.com</a></div>
+                                <div class="top-header__link">
+                                    <button class="btn-header btn-effect">LATEST</button>
+                                    <span>We have added new courses today ...</span>
+                                </div>
+                                <div class="header-login"><a class="header-login__item" href="#/login"><i class="icon stroke icon-User"></i>Sign In</a> <a class="header-login__item" href="#/signup">Register</a> </div>
+                            </div>
+                            <!-- end col  -->
+                        </div>
+                        <!-- end row  -->
+                    </div>
+                    <!-- end container  -->
+                </div>
+                <!-- end top-header  -->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a class="header-logo" href="#/home">
+                                <img class="header-logo__img" src="assets/img/logo.png" height="50" width="195" alt="Logo"></a>
+                            <div class="header-inner">
+                                <div class="header-search">
+                                    <div class="navbar-search">
+                                        <form id="search-global-form">
+                                            <div class="input-group">
+                                                <input type="text" placeholder="Type your search..." class="form-control" autocomplete="off" name="s" id="search" value="">
+                                                <span class="input-group-btn">
+                                                    <button type="reset" class="btn search-close" id="search-close"><i class="fa fa-times"></i></button>
+                                                </span>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <a id="search-open" href="#fakelink"><i class="icon stroke icon-Search"></i></a><a class="header-cart" href="../index.html"><i class="icon stroke icon-ShoppingCart"></i></a>
+                                <nav class="navbar yamm">
+                                    <div class="navbar-header hidden-md  hidden-lg  hidden-sm ">
+                                        <button type="button" data-toggle="collapse" data-target="#navbar-collapse-1" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                                    </div>
+                                    <div id="navbar-collapse-1" class="navbar-collapse collapse">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#/home">Home<span class="nav-subtitle">&nbsp;</span></a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="javascript:void(0);">Job Posting<span class="nav-subtitle">Opportunities</span></a>
+                                                <ul role="menu" class="dropdown-menu">
+                                                    <li><a href="#/jobPosting">Post a Job</a> </li>
+                                                    <li><a href="instructors.html">Job Summary</a> </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="javascript:void(0);">Search Profiles<span class="nav-subtitle">Candidates</span></a>
+                                                <ul role="menu" class="dropdown-menu">
+                                                    <li><a href="about.html">Predefine Criteria</a> </li>
+                                                    <li><a href="about.html">Predefined Search</a> </li>
+                                                    <li><a href="instructors.html">Custom Search</a> </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="javascript:void(0);">About Us<span class="nav-subtitle">OUR World</span></a>
+                                                <ul role="menu" class="dropdown-menu">
+                                                    <li><a href="#/createProfile">Create Profile</a> </li>
+                                                    <li><a href="blog-post.html">Account Summary</a> </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#/contact">CONTACT<span class="nav-subtitle">say us hi</span></a></li>
+                                        </ul>
+                                    </div>                                   
+                                </nav>
+                                <!--end navbar -->
+
+                            </div>
+                            <!-- end header-inner -->
+                        </div>
+                        <!-- end col  -->
+                    </div>
+                    <!-- end row  -->
+                </div>
+                <!-- end container-->
+            </header>
+            <!-- end header -->
+
+            <div class="main-content">
+                @RenderBody()
+            </div>
+            <!-- end main-content -->
+
+            <footer class="footer">
+                <div class="container">
+                    <div class="footer-inner border-decor_top">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-3">
+                                <section class="footer-section">
+
+                                    <a href="javascript:void(0);">
+                                        <img class="footer-logo img-responsive" src="assets/img/logo_white.png" height="50" width="195" alt="Logo"></a>
+                                    <div class="footer-info">Merarank.com is an Interactive Online Platform that fosters the convergence of Students, Educational Institutions and Companies, with an objective to create a robust databank of Authentic & Verified Information, Expert Guidance and Opportunities, that can be used by all parties involved for mutually beneficial results.</div>
+
+
+                                </section>
+                                <!-- end footer-section -->
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-lg-2 col-sm-3">
+                                <section class="footer-section">
+
+                                    <ul class="footer-list list-unstyled">
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Teachers & Staff</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Who We Are</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">How It Works</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Support & FAQ’s</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Terms & Conditions</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Privacy Policy</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Disclaimer</a></li>
+                                    </ul>
+                                </section>
+                                <!-- end footer-section -->
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-lg-3 col-sm-3">
+                                <section class="footer-section">
+
+                                    <ul class="footer-list list-unstyled">
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">College Events</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Universities & Colleges</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Study Abroad</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Scholarships</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Campus Hiring</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">Competetive Exams</a></li>
+                                        <li class="footer-list__item"><a class="footer-list__link" href="javascript:void(0);">College Admissions</a></li>
+                                    </ul>
+                                </section>
+                                <!-- end footer-section -->
+                            </div>
+                            <!-- end col -->
+
+                            <div class="col-lg-4 col-sm-3">
+                                <section class="footer-section">
+
+                                    <div class="footer-contacts">
+                                        <i class="icon stroke icon-Phone2"></i>
+                                        <span class="footer-contacts__inner">Call us 0800 12345</span>
+                                    </div>
+                                    <div class="footer-contacts">
+                                        <i class="icon stroke icon-Mail"></i>
+                                        <a class="footer-contacts__inner" href="mailto:info@merarank.com">info@merarank.com</a>
+                                    </div>
+                                </section>
+                                <!-- end footer-section -->
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end footer-inner -->
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="footer-bottom">
+                                <div class="copyright">Copyright © 2016 <a href="javascript:void(0);">Merarank</a>, An Academic Portfolio Management Portal for Students.</div>
+                                <ul class="social-links list-unstyled">
+                                    <li><a class="icon fa fa-facebook" href="javascript:void(0);"></a></li>
+                                    <li><a class="icon fa fa-twitter" href="javascript:void(0);"></a></li>
+                                    <li><a class="icon fa fa-google-plus" href="javascript:void(0);"></a></li>
+                                    <li><a class="icon fa fa-instagram" href="javascript:void(0);"></a></li>
+                                    <li><a class="icon fa fa-linkedin" href="javascript:void(0);"></a></li>
+                                    <li><a class="icon fa fa-youtube-play" href="javascript:void(0);"></a></li>
+                                </ul>
+                            </div>
+                            <!-- end footer-bottom -->
+                        </div>
+                        <!-- end col -->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- end container -->
+            </footer>
+        </div>
+        <!-- end wrapper -->
+    </div>
+
+    @Scripts.Render("~/bundles/plugin")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

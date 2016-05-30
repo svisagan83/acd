@@ -1,0 +1,152 @@
+﻿<div class="section-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wrap-breadcrumb clearfix">
+                    <ol class="breadcrumb">
+                        <li><a href="#/home"><i class="icon stroke icon-House"></i></a></li>
+                        <!--<li><a href="#/signup">our blog</a></li>-->
+                        <li class="active">Sign Up</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- end section-breadcrumb -->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <section class="comment-reply-form">
+                <h3 class="widget-title widget-title_mod-a ui-title-inner decor decor_mod-a">Create Your Profile</h3>
+                <form id="comment-reply-form" class="ui-form" name="corporate">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input id="txtCompanyName" type="text" ng-model="corporate.CompanyName" name="company_name" placeholder="Company Name" class="form-control" required />
+                            <span style="color:red;" ng-show="corporate.company_name.$dirty && corporate.company_name.$invalid">
+                                <span ng-show="corporate.company_name.$error.required">Company Name is required*</span>
+                            </span>
+                        </div>
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="txtFirstName" type="text" ng-model="corporate.FirstName" placeholder="First Name" name="first_name" required class="form-control" />
+                            <span style="color:red;" ng-show="corporate.first_name.$dirty && corporate.first_name.$invalid">
+                                <span ng-show="corporate.first_name.$error.required">First Name is required*</span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="txtDesignation" type="text" name="designation" ng-model="corporate.Designation" required placeholder="Designation" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.designation.$dirty && corporate.designation.$invalid">
+                                <span ng-show="corporate.designation.$error.required">Designation is required*</span>
+                            </span>
+                        </div>
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="txtEmail" type="email" name="email" required ng-model="corporate.Email" placeholder="Email Address" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.email.$dirty && corporate.email.$invalid">
+                                <span ng-show="corporate.email.$error.required">Email is required*</span>
+                                <span ng-show="corporate.email.$invalid">Invalid Email*</span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="txtMobileNo" ng-minlength="10" type="text" ng-pattern="/^[0-9]{1,10}$/" name="mobile_no" placeholder="Mobile Number" required ng-model="corporate.Mobile" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.mobile_no.$dirty && corporate.mobile_no.$invalid">
+                                <span ng-show="corporate.mobile_no.$error.required">Mobile Number is required*</span>
+                                <span ng-show="!corporate.mobile_no.$error.required && corporate.mobile_no.$invalid">Invalid Mobile number*</span>
+                            </span>
+                        </div>
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="txtPassword" type="password" placeholder="Password" ng-model="corporate.Password" name="password" required ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.password.$dirty && corporate.password.$invalid">
+                                <span ng-show="corporate.password.$error.required">Password is required*</span>
+                                <span ng-show="!corporate.password.$error.required && (corporate.password.$error.minlength || corporate.password.$error.maxlength) && corporate.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+                                <span ng-show="!corporate.password.$error.required && !corporate.password.$error.minlength && !corporate.password.$error.maxlength && corporate.password.$error.pattern && corporate.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="txtConfirmPassword" type="password" name="confirm_password" ng-model="corporate.PasswordConfirm" required pw-check="txtPassword" placeholder="Confirm Password" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.confirm_password.$dirty && corporate.confirm_password.$invalid && corporate.confirm_password.$error.pwmatch">
+                                <span ng-show="corporate.confirm_password.$error.required">Please confirm your password*</span>
+                                <span ng-show="!corporate.confirm_password.$error.required && corporate.confirm_password.$error.pwmatch">Passwords don't match.</span>
+                            </span>
+                        </div>
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input id="txtCompanyAddress" type="text" name="company_address" ng-model="corporate.Address1" placeholder="Company Address" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.company_address.$dirty && corporate.company_address.$invalid">
+                                <span ng-show="corporate.company_address.$error.required">Address is required*</span>
+                            </span>
+                        </div>
+
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <input id="txtCountry" type="text" name="country" ng-model="corporate.Country" required placeholder="Country" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.country.$dirty && corporate.country.$invalid">
+                                <span ng-show="corporate.country.$error.required">Country is required*</span>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <input id="txtState" type="text" placeholder="State" ng-model="corporate.State" name="state" required class="form-control" />
+                            <span style="color:red;" ng-show="corporate.state.$dirty && corporate.state.$invalid">
+                                <span ng-show="corporate.state.$error.required">Company Name is required*</span>
+                            </span>
+                        </div>
+                    </div><!-- end row -->
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input id="txtCity" type="text" name="city" ng-model="corporate.City" required placeholder="City" class="form-control" />
+                            <span style="color:red;" ng-show="corporate.city.$dirty && corporate.city.$invalid">
+                                <span ng-show="corporate.city.$error.required">City is required*</span>
+                            </span>
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <input id="txtZipCode" type="text" placeholder="Zip Code" ng-model="corporate.PostalZip" name="zip_code" required class="form-control" />
+                            <span style="color:red;" ng-show="corporate.zip_code.$dirty && corporate.zip_code.$invalid">
+                                <span ng-show="corporate.zip_code.$error.required">Zip Code is required*</span>
+                            </span>
+                        </div>
+                    </div><!-- end row -->
+
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-effect" ng-click="Add()" ng-disabled="!corporate.$valid">submit</button>
+                        </div>
+                    </div><!-- end row -->
+                </form>
+
+            </section>
+
+        </div><!-- end col -->
+
+
+        <div class="col-md-4">
+            <aside class="sidebar sidebar_mod-a">
+                <section class="widget widget-default widget_text">
+                    <h3 class="widget-title ui-title-inner decor decor_mod-a">text widget</h3>
+                    <div class="block_content">
+                        <p>Esllentesque lacus.Vivamus lorem arcu semperd duiac. Cras ornare arcu avamus nda leo. Etiam ind arcu. Morbi justo mauris tempus pharetrad interd um at congue semper purus. Lorem ipsum dolor sit amet sed consectetura.</p>
+                    </div><!-- end block_content -->
+                </section><!-- end widget_text -->
+
+            </aside><!-- end sidebar -->
+        </div><!-- end col -->
+    </div><!-- end row -->
+</div><!-- end container -->
