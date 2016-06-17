@@ -9,109 +9,24 @@
                     <div class="wrap-subtitle">
                         <div class="ui-subtitle-block ui-subtitle-block_w-line">If you have some feedback or want to ask any questions</div>
                     </div><!-- end wrap-title -->
-                    <form class="form-config12 ui-form" action="#" method="post">
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="jelect">
-                                    <input value="0" type="text" class="jelect-input">
-                                    <div tabindex="0" role="button" class="jelect-current">State</div>
-                                    <ul class="jelect-options">
-                                        <li class="jelect-option jelect-option_state_active">Ap1</li>
-                                        <li class="jelect-option">Anadamon Nichbar Islands</li>
-                                    </ul>
-                                </div>
-                            </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 wow bounceInRight" data-wow-duration="2s" data-wow-delay="1.4s">                    
+                    <div class="col-md-4" ng-repeat="r in students ">
+                        <div class="entry-media" ng-show="{{r.CompanyName=="abc"}}">
+                            <div class="entry-thumbnail"> <a href="javascript:void(0);"><img class="img-responsive" src="assets/media/posts/100x90/1.jpg" width="100" height="90" alt="Foto" /></a> </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="jelect">
-                                <input value="0" type="text" class="jelect-input">
-                                <div tabindex="0" role="button" class="jelect-current">Board</div>
-                                <ul class="jelect-options">
-                                    <li class="jelect-option jelect-option_state_active">State</li>
-                                    <li class="jelect-option">ICSE</li>
-                                    <li class="jelect-option">CBSE</li>
-                                </ul>
-                            </div>
+                        <div class="entry-main">
+                            <h3 class="entry-title entry-title_mod-a"><a href="javascript:void(0);">{{r.CompanyName}}</a></h3>
+                            <div class="entry-meta"> <span class="entry-autor"> <span>By </span> <a class="post-link" href="javascript:void(0);">{{r.FirstName}}</a> </span> <span class="entry-date"><a href="javascript:void(0);">Dec 16, 2015</a></span> </div>                            
                         </div>
+                        <!-- end entry-main -->
+                    </div>
+                    <!-- end post -->                    
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Medium of Study" required>
-                </div>
-
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Year of Study">
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Year of Completion" required>
-                </div>
-
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder=" ">
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <input class="form-control" type="text" placeholder="School Name">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <input class="form-control" type="text" placeholder="School Address Line 1 - No, street, location">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-12">
-                    <input class="form-control" type="text" placeholder="School Address Line 2 - Block, Town, District">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="City" required>
-                </div>
-
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Country ">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Postal Code" required>
-                </div>
-
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Phone Number">
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Mobile No" required>
-                </div>
-
-                <div class="col-md-6">
-                    <input class="form-control" type="text" placeholder="Email ID">
-                </div>
-            </div>
-
-
-            <div class="col-xs-12">
-
-                <button class="btn btn-primary btn-effect">Submit</button>
-                <button class="btn btn-primary btn-effect">Clear</button>
             </div>
         </div>
     </section><!-- end section_contacts-form -->

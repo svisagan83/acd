@@ -1,5 +1,11 @@
 ﻿/// <reference path="../angular.js" />
-var module = angular.module("StudentApp", ["ngRoute", "stuControllers", "stuResources", "UserValidation"]);
+//var module = angular.module("StudentApp", ["ngRoute", "stuControllers", "stuResources", "UserValidation"]);
+var module = angular.module("StudentApp", ["ngRoute", "stuControllers", "stuResources", "UserValidation", "xeditable"]);
+
+
+module.run(function (editableOptions) {
+    editableOptions.theme = 'bs3';
+});
 
 module.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
@@ -50,7 +56,15 @@ module.config(['$routeProvider', function ($routeProvider) {
         .when('/preSearch', {
             templateUrl: 'template/preSearch.html',
             controller: 'preSearch'
-        })        
+        })
+        .when('/test', {
+            templateUrl: 'template/test.html',
+            controller: 'CtrlTest1'
+        })
+        .when('/sample', {
+            templateUrl: 'template/sample.html',
+            controller: 'CtrlSample'
+        })
         .otherwise({
         redirectTo: '/home'
     });
@@ -82,3 +96,19 @@ angular.module('UserValidation', [])
             }
         }
     }]);
+
+
+//// --------------- mock $http requests ----------------------
+//module.run(function ($httpBackend) {
+//    $httpBackend.whenGET('/test').respond([
+//      { id: 1, text: 'user' },
+//      { id: 2, text: 'customer' },
+//      { id: 3, text: 'vip' },
+//      { id: 4, text: 'admin' }
+//    ]);
+
+//    //$httpBackend.whenPOST(/\/saveUser/).respond(function (method, url, data) {
+//    //    data = angular.fromJson(data);
+//    //    return [200, { status: 'ok' }];
+//    //});
+//});

@@ -1,6 +1,6 @@
 ;(function ( $, window, document, undefined ) {
 	'use strict';
-	debugger;
+	
 	var Jelect,
 		pluginName = 'jelect',
 		dataPlugin = 'plugin_' + pluginName,
@@ -16,7 +16,7 @@
 		};
 
 	Jelect = function (element, options) {
-	    debugger;
+	    
 		this.element = element;
 		this.$element = $( element );
 		this.options = $.extend( defaults, options );
@@ -28,7 +28,7 @@
 	Jelect.prototype = {
         
 		init: function ( options ) {
-		    debugger;
+		    
 			var that = this,
 				opts = $.extend( that.options, options ),
 				$select = that.$element,
@@ -38,7 +38,7 @@
 				// Open a dropdown
 				.children( opts.current )
 				.on('click.jelectCurrentClick', function () {
-				    debugger;
+				    
 					var $this = $( this ),
 						$thisSelect = $this.closest( opts.wrapper ),
 						$thisSelectOptions = $this.siblings( opts.optionsWrapper );
@@ -53,7 +53,7 @@
 				// Select an option
 				.siblings( opts.optionsWrapper )
 				.on('click.jelectOptionClick', opts.option, function () {
-				    debugger;
+				    
 					var $this = $( this ),
 						currentVal = $this.data('val'),
 						currentText = $this.text();
@@ -85,7 +85,7 @@
 
 			// Hide dropdowns when click outside
 			$(document).on('click.jelectOutsideClick', function (e) {
-			    debugger;
+			    
 				var $target = $( e.target );
 
 				if (

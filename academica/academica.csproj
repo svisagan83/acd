@@ -488,8 +488,10 @@
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\sampleController.js" />
     <Content Include="Scripts\app\stuControllers.js" />
     <Content Include="Scripts\app\stuResources.js" />
+    <Content Include="Scripts\app\testController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -537,8 +539,10 @@
     <Content Include="template\createProfile.html" />
     <Content Include="template\home.html" />
     <Content Include="template\login.html" />
+    <Content Include="template\sample.html" />
     <Content Include="template\signup.html" />
     <Content Include="template\signup_old.html" />
+    <Content Include="template\test.html" />
     <Content Include="template\thenth.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
