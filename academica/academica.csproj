@@ -77,15 +77,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Oracle.ManagedDataAccess.EntityFramework">
-      <HintPath>..\..\..\..\Desktop\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Oracle.ManagedDataAccessDTC">
-      <HintPath>..\..\..\..\Desktop\Oracle.ManagedDataAccessDTC.dll</HintPath>
-    </Reference>
-    <Reference Include="Oracle.ManagedDataAccessIOP">
-      <HintPath>..\..\..\..\Desktop\Oracle.ManagedDataAccessIOP.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -222,34 +213,200 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MRCorporatesController.cs" />
-    <Compile Include="Controllers\Students1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\accreditation_type.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\accreditation_value.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\activation_keys.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\arrear_marks.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\board.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\city.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cm.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\college.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\country.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\course.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\course_mapping.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\department.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\department_mapping.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\event.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\feature.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\feedback.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\grade.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\grade_scale.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\graduation.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\main_modules.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\MeraModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MeraModel.Context.tt</DependentUpon>
+    <Compile Include="Models\mark.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MeraModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MeraModel.tt</DependentUpon>
+    <Compile Include="Models\medium.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MeraModel.Designer.cs">
+    <Compile Include="Models\member.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\member_settings.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeraRankModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MeraModel.edmx</DependentUpon>
+      <DependentUpon>MeraRankModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeraRankModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MeraRankModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MeraRankModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\modules_features.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MRCorporate.cs">
-      <DependentUpon>MeraModel.tt</DependentUpon>
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\newsletter.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\organization_type.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orgnization.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rank.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\refered_emails.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\search.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\search_terms.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\semester.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sslc_12th_marks.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sslc_12th_settings.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\state.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\stream.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
-      <DependentUpon>MeraModel.tt</DependentUpon>
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subject.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subject_mapping.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subject_mapping_settings.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subscription.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sub_modules.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\support_complaints.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\support_type.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\university.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\university_course_mapping.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\university_department_mapping.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\university_type.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_access_rights.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_activity_log.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_admin.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_mapping.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_members.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User_registration.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user_roles.cs">
+      <DependentUpon>MeraRankModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -451,15 +608,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\MeraModel.Context.tt">
+    <Content Include="Models\MeraRankModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MeraModel.edmx</DependentUpon>
-      <LastGenOutput>MeraModel.Context.cs</LastGenOutput>
+      <DependentUpon>MeraRankModel.edmx</DependentUpon>
+      <LastGenOutput>MeraRankModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\MeraModel.tt">
+    <Content Include="Models\MeraRankModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MeraModel.edmx</DependentUpon>
-      <LastGenOutput>MeraModel.cs</LastGenOutput>
+      <DependentUpon>MeraRankModel.edmx</DependentUpon>
+      <LastGenOutput>MeraRankModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -482,12 +639,12 @@
     <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfont93e3.woff2" />
     <Content Include="assets\fonts\font-awesome\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="assets\fonts\stroke\fonts\Stroke-Gap-Icons.eot" />
-    <EntityDeploy Include="Models\MeraModel.edmx">
+    <EntityDeploy Include="Models\MeraRankModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MeraModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MeraRankModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\MeraModel.edmx.diagram">
-      <DependentUpon>MeraModel.edmx</DependentUpon>
+    <Content Include="Models\MeraRankModel.edmx.diagram">
+      <DependentUpon>MeraRankModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

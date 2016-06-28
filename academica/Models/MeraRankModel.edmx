@@ -1,0 +1,2652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MeraRankDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accreditation_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="accreditation_value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="accreditation_value_name" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="activation_keys">
+          <Key>
+            <PropertyRef Name="key_id" />
+          </Key>
+          <Property Name="key_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="issued_user_id" Type="int" Nullable="false" />
+          <Property Name="activation_key" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="key_series" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="key_value" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="key_status" Type="smallint" Nullable="false" />
+          <Property Name="remarks" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="created_by" Type="int" Nullable="false" />
+          <Property Name="created_on" Type="date" Nullable="false" />
+          <Property Name="activated_by" Type="int" Nullable="false" />
+          <Property Name="activated_on" Type="date" Nullable="false" />
+          <Property Name="activated_till" Type="date" Nullable="false" />
+          <Property Name="valid_days" Type="smallint" Nullable="false" />
+          <Property Name="is_activated" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arrear_marks">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="year" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+          <Property Name="semester_id" Type="smallint" Nullable="false" />
+          <Property Name="subject_id" Type="int" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="internal_mark" Type="smallint" Nullable="false" />
+          <Property Name="external_mark" Type="smallint" Nullable="false" />
+          <Property Name="actual_mark" Type="smallint" Nullable="false" />
+          <Property Name="isAbsent" Type="int" Nullable="false" />
+          <Property Name="result" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+          <Property Name="modified_on" Type="datetime2" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="board">
+          <Key>
+            <PropertyRef Name="board_id" />
+          </Key>
+          <Property Name="board_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="board_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="city_code" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="city_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="seo_title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="modifiy_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="college">
+          <Key>
+            <PropertyRef Name="college_id" />
+          </Key>
+          <Property Name="college_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="college_code" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="college_name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="college_type" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="affiliated_to" Type="int" Nullable="false" />
+          <Property Name="address_line1" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="address_line2" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="stream_id" Type="smallint" Nullable="false" />
+          <Property Name="pincode" Type="int" Nullable="false" />
+          <Property Name="phone_no" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="mobile_no" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="email_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="website" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="contact_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="international_rank" Type="int" Nullable="false" />
+          <Property Name="national_rank" Type="int" Nullable="false" />
+          <Property Name="accreditation_type" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="accreditation_value" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="NAAC" Type="int" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="country_id" />
+          </Key>
+          <Property Name="country_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_code" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="country_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+          <Property Name="is_default" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course">
+          <Key>
+            <PropertyRef Name="course_id" />
+          </Key>
+          <Property Name="course_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="course_code" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="course_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="course_code" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_code" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="stream" Type="int" Nullable="false" />
+          <Property Name="department_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="department_code" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="stream_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="event_code" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="event_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="event_type" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="description" Type="varchar(max)" Nullable="false" />
+          <Property Name="from_date" Type="date" Nullable="false" />
+          <Property Name="to_date" Type="date" Nullable="false" />
+          <Property Name="from_time" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="to_time" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="venue" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="institute_id" Type="int" Nullable="false" />
+          <Property Name="targeted_audience" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="features">
+          <Key>
+            <PropertyRef Name="feature_id" />
+          </Key>
+          <Property Name="feature_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="feature_name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="feature_code" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="comments" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="postedOn" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grade">
+          <Key>
+            <PropertyRef Name="grade_id" />
+          </Key>
+          <Property Name="grade_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="grade_scale" Type="int" Nullable="false" />
+          <Property Name="grade_point" Type="float" Nullable="false" />
+          <Property Name="grade" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="marks_from" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="marks_to" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="interpretation" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="class" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="validate_from_date" Type="date" Nullable="false" />
+          <Property Name="validate_to_date" Type="date" Nullable="false" />
+          <Property Name="active_status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grade_scale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="grade_scale" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="graduation">
+          <Key>
+            <PropertyRef Name="graduation_id" />
+          </Key>
+          <Property Name="graduation_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="graduation_name" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="main_modules">
+          <Key>
+            <PropertyRef Name="main_module_id" />
+          </Key>
+          <Property Name="main_module_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="main_module_name" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marks">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="year" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+          <Property Name="semester_id" Type="smallint" Nullable="false" />
+          <Property Name="subject_id" Type="int" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="internal_mark" Type="smallint" Nullable="false" />
+          <Property Name="external_mark" Type="smallint" Nullable="false" />
+          <Property Name="actual_mark" Type="smallint" Nullable="false" />
+          <Property Name="isAbsent" Type="int" Nullable="false" />
+          <Property Name="result" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="medium">
+          <Key>
+            <PropertyRef Name="medium_id" />
+          </Key>
+          <Property Name="medium_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="medium_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member_settings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="stream_id" Type="smallint" Nullable="false" />
+          <Property Name="year" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="portfolio" Type="int" Nullable="false" />
+          <Property Name="jobalert" Type="smallint" Nullable="false" />
+          <Property Name="course_duration" Type="smallint" Nullable="false" />
+          <Property Name="year_of_completion" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="members">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="registration_no" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="registration_code" Type="varchar" MaxLength="13" Nullable="false" />
+          <Property Name="member_fname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="member_lname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="dob" Type="date" Nullable="false" />
+          <Property Name="permanent_address" Type="varchar(max)" Nullable="false" />
+          <Property Name="communication_address" Type="varchar(max)" Nullable="false" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="zipcode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="batch" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="referered_by" Type="int" Nullable="false" />
+          <Property Name="registered_on" Type="datetime2" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="modules_features">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="module_id" Type="int" Nullable="false" />
+          <Property Name="feature_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MRCorporates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="varchar" MaxLength="15" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="150" />
+          <Property Name="LastName" Type="varchar" MaxLength="150" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Address1" Type="varchar" MaxLength="200" />
+          <Property Name="Address2" Type="varchar" MaxLength="200" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="PostalZip" Type="varchar" MaxLength="50" />
+          <Property Name="Designation" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="PasswordConfirm" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="newsletter">
+          <Key>
+            <PropertyRef Name="newsletter_id" />
+          </Key>
+          <Property Name="newsletter_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="newsletter_title" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="newsletter" Type="varchar(max)" Nullable="false" />
+          <Property Name="newsletter_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="organization_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orgnization">
+          <Key>
+            <PropertyRef Name="org_id" />
+          </Key>
+          <Property Name="org_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="org_type" Type="int" Nullable="false" />
+          <Property Name="org_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="org_email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="org_phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="org_mobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="address_line1" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="address_line2" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="org_fax" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="org_website" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rank">
+          <Key>
+            <PropertyRef Name="row_num" />
+          </Key>
+          <Property Name="row_num" Type="int" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="total" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="refered_emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="refered_by" Type="int" Nullable="false" />
+          <Property Name="refered_to_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="refered_email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+          <Property Name="refered_on" Type="datetime2" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="search">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="term" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="search_terms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="module" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="term" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="semester">
+          <Key>
+            <PropertyRef Name="semester_id" />
+          </Key>
+          <Property Name="semester_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="semester_name" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sslc_12th_marks">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="subject_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="subject_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="min_pass_mark" Type="smallint" Nullable="false" />
+          <Property Name="max_mark" Type="smallint" Nullable="false" />
+          <Property Name="marks_scored" Type="smallint" Nullable="false" />
+          <Property Name="mark_for" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sslc_12th_settings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="board_id" Type="int" Nullable="false" />
+          <Property Name="medium_id" Type="int" Nullable="false" />
+          <Property Name="year_of_pass" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="year_of_complete" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="school_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="address2" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="pincode" Type="int" Nullable="false" />
+          <Property Name="mobile_no" Type="int" Nullable="false" />
+          <Property Name="phone_no" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="setting_for" Type="int" Nullable="false" />
+          <Property Name="marks_copy_image" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="jobalert" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="state_code" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="state_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stream">
+          <Key>
+            <PropertyRef Name="stream_id" />
+          </Key>
+          <Property Name="stream_id" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stream_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Country" Type="varchar" MaxLength="50" />
+          <Property Name="State" Type="varchar" MaxLength="50" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Pincode" Type="varchar" MaxLength="50" />
+          <Property Name="Mobile" Type="varchar" MaxLength="50" />
+          <Property Name="BatchYear" Type="int" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="sub_modules">
+          <Key>
+            <PropertyRef Name="sub_module_id" />
+          </Key>
+          <Property Name="sub_module_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="main_id" Type="int" Nullable="false" />
+          <Property Name="sub_module_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="sub_module_code" Type="varchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="subject_id" />
+          </Key>
+          <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject_code" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="subject_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="subject_category" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="subject_type" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="graduation_id" Type="tinyint" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="semester_id" Type="tinyint" Nullable="false" />
+          <Property Name="syllabus_year_from" Type="date" Nullable="false" />
+          <Property Name="syllabus_year_to" Type="date" Nullable="false" />
+          <Property Name="internal_mark" Type="tinyint" Nullable="false" />
+          <Property Name="internal_min_pass_mark" Type="tinyint" Nullable="false" />
+          <Property Name="external_mark" Type="tinyint" Nullable="false" />
+          <Property Name="external_min_pass_mark" Type="tinyint" Nullable="false" />
+          <Property Name="subject_min_mark" Type="tinyint" Nullable="false" />
+          <Property Name="subject_max_mark" Type="tinyint" Nullable="false" />
+          <Property Name="subject_max_credits" Type="tinyint" Nullable="false" />
+          <Property Name="active_status" Type="tinyint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subject_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject_id" Type="int" Nullable="false" />
+          <Property Name="subject_code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="semester_id" Type="smallint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MeraRankDB.dbo.subject_mapping_settings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="subject_mapping_settings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="state_id" />
+            <PropertyRef Name="university_id" />
+            <PropertyRef Name="college_id" />
+            <PropertyRef Name="graduation_id" />
+            <PropertyRef Name="department_id" />
+            <PropertyRef Name="course_id" />
+            <PropertyRef Name="semester_id" />
+            <PropertyRef Name="min_sub_to_be_filled" />
+            <PropertyRef Name="max_sub_to_be_filled" />
+            <PropertyRef Name="max_sub_to_be_displayed" />
+            <PropertyRef Name="max_sub_to_be_mapped" />
+            <PropertyRef Name="max_elective_subject" />
+            <PropertyRef Name="max_core_subjects" />
+            <PropertyRef Name="max_allied_subjects" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="semester_id" Type="smallint" Nullable="false" />
+          <Property Name="min_sub_to_be_filled" Type="smallint" Nullable="false" />
+          <Property Name="max_sub_to_be_filled" Type="smallint" Nullable="false" />
+          <Property Name="max_sub_to_be_displayed" Type="smallint" Nullable="false" />
+          <Property Name="max_sub_to_be_mapped" Type="smallint" Nullable="false" />
+          <Property Name="max_elective_subject" Type="smallint" Nullable="false" />
+          <Property Name="max_core_subjects" Type="smallint" Nullable="false" />
+          <Property Name="max_allied_subjects" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subscription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="created_on" Type="datetime2" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="support_complaints">
+          <Key>
+            <PropertyRef Name="complaint_id" />
+          </Key>
+          <Property Name="complaint_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="type_id" Type="smallint" Nullable="false" />
+          <Property Name="support_type_id" Type="int" Nullable="false" />
+          <Property Name="ticket_subject" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="issue_code" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="issue_description" Type="varchar(max)" Nullable="false" />
+          <Property Name="posted_on" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+          <Property Name="update_notes" Type="varchar(max)" Nullable="false" />
+          <Property Name="last_updated_on" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="last_updated_by" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="support_type">
+          <Key>
+            <PropertyRef Name="support_type_id" />
+          </Key>
+          <Property Name="support_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="university">
+          <Key>
+            <PropertyRef Name="university_id" />
+          </Key>
+          <Property Name="university_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="university_code" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="university_type" Type="int" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="university_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="address_line1" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="address_line2" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="pincode" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="phone_no" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="mobile_no" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="email_id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="contact_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="international_rank" Type="int" Nullable="false" />
+          <Property Name="national_rank" Type="int" Nullable="false" />
+          <Property Name="accreditation_type" Type="int" Nullable="false" />
+          <Property Name="accreditation_value" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="NAAC" Type="int" />
+          <Property Name="active_status" Type="tinyint" Nullable="false" />
+          <Property Name="inactive_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="university_course_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="course_id" Type="int" Nullable="false" />
+          <Property Name="course_code" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="graduation_id" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="university_department_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="university_id" Type="int" Nullable="false" />
+          <Property Name="department_code" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="stream" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="university_type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_access_rights">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="module_feature_code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_type_id" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_activity_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="user_type" Type="varchar" MaxLength="60" Nullable="false" />
+          <Property Name="action_description" Type="varchar(max)" Nullable="false" />
+          <Property Name="module" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="datetime" Type="datetime2" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_admin">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="35" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+          <Property Name="role_id" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="college_id" Type="int" Nullable="false" />
+          <Property Name="college_code" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="organization_id" Type="int" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_members">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="member_id" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="status" Type="smallint" Nullable="false" />
+          <Property Name="email_verification" Type="smallint" Nullable="false" />
+          <Property Name="activation_key" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="activation_date" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="activated_till_date" Type="date" Nullable="false" />
+          <Property Name="last_login" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="logged_in_status" Type="int" Nullable="false" />
+          <Property Name="user_type" Type="smallint" Nullable="false" />
+          <Property Name="disable_status" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_registration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email_id" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Profile_ActivationKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="user_type" Type="nchar" MaxLength="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="created_on" Type="datetime2" Precision="0" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="lname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="email_id" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+          <Property Name="address_line1" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="address_line2" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="city_id" Type="int" Nullable="false" />
+          <Property Name="state_id" Type="int" Nullable="false" />
+          <Property Name="country_id" Type="int" Nullable="false" />
+          <Property Name="pincode" Type="int" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="org_type" Type="int" Nullable="false" />
+          <Property Name="org_id" Type="int" Nullable="false" />
+          <Property Name="active_status" Type="smallint" Nullable="false" />
+          <Property Name="active_from" Type="date" Nullable="false" />
+          <Property Name="active_to" Type="date" Nullable="false" />
+          <Property Name="inactive_from" Type="date" Nullable="false" />
+          <Property Name="lock_account" Type="smallint" Nullable="false" />
+        </EntityType>
+        <Function Name="Decrypt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="encryp" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="Decrypt_password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="encryp" Type="varbinary" Mode="In" />
+        </Function>
+        <Function Name="Encrypt" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varbinary">
+          <Parameter Name="str" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="Encrypt_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varbinary">
+          <Parameter Name="str" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="fun_check_userregistered" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+          <Parameter Name="email_id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="fun_find_actualpassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+          <Parameter Name="email_id" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pro_user_registration" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email_id" Type="varchar" Mode="In" />
+          <Parameter Name="first_name" Type="varchar" Mode="In" />
+          <Parameter Name="last_name" Type="varchar" Mode="In" />
+          <Parameter Name="user_type" Type="varchar" Mode="In" />
+          <Parameter Name="result" Type="varchar" Mode="InOut" />
+          <Parameter Name="activation_key" Type="nvarchar" Mode="InOut" />
+        </Function>
+        <EntityContainer Name="MeraRankDBModelStoreContainer">
+          <EntitySet Name="accreditation_type" EntityType="Self.accreditation_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="accreditation_value" EntityType="Self.accreditation_value" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="activation_keys" EntityType="Self.activation_keys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="arrear_marks" EntityType="Self.arrear_marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="board" EntityType="Self.board" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="city" EntityType="Self.city" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cms" EntityType="Self.cms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="college" EntityType="Self.college" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="country" EntityType="Self.country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="course" EntityType="Self.course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="course_mapping" EntityType="Self.course_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="department_mapping" EntityType="Self.department_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="event" EntityType="Self.event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="features" EntityType="Self.features" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="feedback" EntityType="Self.feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="grade" EntityType="Self.grade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="grade_scale" EntityType="Self.grade_scale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="graduation" EntityType="Self.graduation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="main_modules" EntityType="Self.main_modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="marks" EntityType="Self.marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="medium" EntityType="Self.medium" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="member_settings" EntityType="Self.member_settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="members" EntityType="Self.members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="modules_features" EntityType="Self.modules_features" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MRCorporates" EntityType="Self.MRCorporates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="newsletter" EntityType="Self.newsletter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="organization_type" EntityType="Self.organization_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orgnization" EntityType="Self.orgnization" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rank" EntityType="Self.rank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="refered_emails" EntityType="Self.refered_emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="search" EntityType="Self.search" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="search_terms" EntityType="Self.search_terms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="semester" EntityType="Self.semester" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sslc_12th_marks" EntityType="Self.sslc_12th_marks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sslc_12th_settings" EntityType="Self.sslc_12th_settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="state" EntityType="Self.state" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stream" EntityType="Self.stream" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sub_modules" EntityType="Self.sub_modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subject" EntityType="Self.subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subject_mapping" EntityType="Self.subject_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subscription" EntityType="Self.subscription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="support_complaints" EntityType="Self.support_complaints" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="support_type" EntityType="Self.support_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="university" EntityType="Self.university" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="university_course_mapping" EntityType="Self.university_course_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="university_department_mapping" EntityType="Self.university_department_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="university_type" EntityType="Self.university_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_access_rights" EntityType="Self.user_access_rights" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_activity_log" EntityType="Self.user_activity_log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_admin" EntityType="Self.user_admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_mapping" EntityType="Self.user_mapping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_members" EntityType="Self.user_members" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_registration" EntityType="Self.User_registration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_roles" EntityType="Self.user_roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="subject_mapping_settings" EntityType="Self.subject_mapping_settings" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [subject_mapping_settings].[id] AS [id], 
+    [subject_mapping_settings].[state_id] AS [state_id], 
+    [subject_mapping_settings].[university_id] AS [university_id], 
+    [subject_mapping_settings].[college_id] AS [college_id], 
+    [subject_mapping_settings].[graduation_id] AS [graduation_id], 
+    [subject_mapping_settings].[department_id] AS [department_id], 
+    [subject_mapping_settings].[course_id] AS [course_id], 
+    [subject_mapping_settings].[semester_id] AS [semester_id], 
+    [subject_mapping_settings].[min_sub_to_be_filled] AS [min_sub_to_be_filled], 
+    [subject_mapping_settings].[max_sub_to_be_filled] AS [max_sub_to_be_filled], 
+    [subject_mapping_settings].[max_sub_to_be_displayed] AS [max_sub_to_be_displayed], 
+    [subject_mapping_settings].[max_sub_to_be_mapped] AS [max_sub_to_be_mapped], 
+    [subject_mapping_settings].[max_elective_subject] AS [max_elective_subject], 
+    [subject_mapping_settings].[max_core_subjects] AS [max_core_subjects], 
+    [subject_mapping_settings].[max_allied_subjects] AS [max_allied_subjects]
+    FROM [dbo].[subject_mapping_settings] AS [subject_mapping_settings]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MeraRankDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accreditation_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="accreditation_value">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="accreditation_value_name" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="activation_keys">
+          <Key>
+            <PropertyRef Name="key_id" />
+          </Key>
+          <Property Name="key_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="issued_user_id" Type="Int32" Nullable="false" />
+          <Property Name="activation_key" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="key_series" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="key_value" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="key_status" Type="Int16" Nullable="false" />
+          <Property Name="remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_by" Type="Int32" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="activated_by" Type="Int32" Nullable="false" />
+          <Property Name="activated_on" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="activated_till" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="valid_days" Type="Int16" Nullable="false" />
+          <Property Name="is_activated" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arrear_marks">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="year" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+          <Property Name="semester_id" Type="Int16" Nullable="false" />
+          <Property Name="subject_id" Type="Int32" Nullable="false" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="internal_mark" Type="Int16" Nullable="false" />
+          <Property Name="external_mark" Type="Int16" Nullable="false" />
+          <Property Name="actual_mark" Type="Int16" Nullable="false" />
+          <Property Name="isAbsent" Type="Int32" Nullable="false" />
+          <Property Name="result" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="modified_on" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="board">
+          <Key>
+            <PropertyRef Name="board_id" />
+          </Key>
+          <Property Name="board_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="board_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="city">
+          <Key>
+            <PropertyRef Name="city_id" />
+          </Key>
+          <Property Name="city_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="city_code" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="cm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="seo_title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="modifiy_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="college">
+          <Key>
+            <PropertyRef Name="college_id" />
+          </Key>
+          <Property Name="college_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="college_code" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="college_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="college_type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="affiliated_to" Type="Int32" Nullable="false" />
+          <Property Name="address_line1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_line2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="stream_id" Type="Int16" Nullable="false" />
+          <Property Name="pincode" Type="Int32" Nullable="false" />
+          <Property Name="phone_no" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile_no" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="international_rank" Type="Int32" Nullable="false" />
+          <Property Name="national_rank" Type="Int32" Nullable="false" />
+          <Property Name="accreditation_type" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accreditation_value" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAAC" Type="Int32" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="country">
+          <Key>
+            <PropertyRef Name="country_id" />
+          </Key>
+          <Property Name="country_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="is_default" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="course">
+          <Key>
+            <PropertyRef Name="course_id" />
+          </Key>
+          <Property Name="course_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="course_code" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="course_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="course_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="course_code" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="department_id" />
+          </Key>
+          <Property Name="department_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department_code" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="stream" Type="Int32" Nullable="false" />
+          <Property Name="department_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="department_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="department_code" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="stream_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="event">
+          <Key>
+            <PropertyRef Name="event_id" />
+          </Key>
+          <Property Name="event_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="event_code" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="event_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="event_type" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="from_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="to_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="from_time" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="to_time" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="venue" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="institute_id" Type="Int32" Nullable="false" />
+          <Property Name="targeted_audience" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feature">
+          <Key>
+            <PropertyRef Name="feature_id" />
+          </Key>
+          <Property Name="feature_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="feature_name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="feature_code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comments" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="postedOn" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="grade">
+          <Key>
+            <PropertyRef Name="grade_id" />
+          </Key>
+          <Property Name="grade_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="grade_scale" Type="Int32" Nullable="false" />
+          <Property Name="grade_point" Type="Double" Nullable="false" />
+          <Property Name="grade1" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="marks_from" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="marks_to" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="interpretation" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="class" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="validate_from_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="validate_to_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="active_status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="grade_scale">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grade_scale1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="graduation">
+          <Key>
+            <PropertyRef Name="graduation_id" />
+          </Key>
+          <Property Name="graduation_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="graduation_name" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="main_modules">
+          <Key>
+            <PropertyRef Name="main_module_id" />
+          </Key>
+          <Property Name="main_module_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="main_module_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mark">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="year" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+          <Property Name="semester_id" Type="Int16" Nullable="false" />
+          <Property Name="subject_id" Type="Int32" Nullable="false" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="internal_mark" Type="Int16" Nullable="false" />
+          <Property Name="external_mark" Type="Int16" Nullable="false" />
+          <Property Name="actual_mark" Type="Int16" Nullable="false" />
+          <Property Name="isAbsent" Type="Int32" Nullable="false" />
+          <Property Name="result" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="medium">
+          <Key>
+            <PropertyRef Name="medium_id" />
+          </Key>
+          <Property Name="medium_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="medium_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member_settings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="stream_id" Type="Int16" Nullable="false" />
+          <Property Name="year" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="portfolio" Type="Int32" Nullable="false" />
+          <Property Name="jobalert" Type="Int16" Nullable="false" />
+          <Property Name="course_duration" Type="Int16" Nullable="false" />
+          <Property Name="year_of_completion" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="member">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="registration_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registration_code" Type="String" MaxLength="13" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="member_fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="member_lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dob" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="permanent_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="communication_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="zipcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="batch" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="referered_by" Type="Int32" Nullable="false" />
+          <Property Name="registered_on" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="modules_features">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="module_id" Type="Int32" Nullable="false" />
+          <Property Name="feature_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MRCorporate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostalZip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordConfirm" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="newsletter">
+          <Key>
+            <PropertyRef Name="newsletter_id" />
+          </Key>
+          <Property Name="newsletter_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="newsletter_title" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="newsletter1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="newsletter_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="organization_type">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orgnization">
+          <Key>
+            <PropertyRef Name="org_id" />
+          </Key>
+          <Property Name="org_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="org_type" Type="Int32" Nullable="false" />
+          <Property Name="org_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_line1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_line2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="org_fax" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_website" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rank">
+          <Key>
+            <PropertyRef Name="row_num" />
+          </Key>
+          <Property Name="row_num" Type="Int32" Nullable="false" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="total" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="refered_emails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="refered_by" Type="Int32" Nullable="false" />
+          <Property Name="refered_to_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="refered_email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="refered_on" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="search">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="search_terms">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="module" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="code" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="term" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="semester">
+          <Key>
+            <PropertyRef Name="semester_id" />
+          </Key>
+          <Property Name="semester_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="semester_name" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="sslc_12th_marks">
+          <Key>
+            <PropertyRef Name="mark_id" />
+          </Key>
+          <Property Name="mark_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="subject_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="min_pass_mark" Type="Int16" Nullable="false" />
+          <Property Name="max_mark" Type="Int16" Nullable="false" />
+          <Property Name="marks_scored" Type="Int16" Nullable="false" />
+          <Property Name="mark_for" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sslc_12th_settings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="board_id" Type="Int32" Nullable="false" />
+          <Property Name="medium_id" Type="Int32" Nullable="false" />
+          <Property Name="year_of_pass" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="year_of_complete" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="school_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="pincode" Type="Int32" Nullable="false" />
+          <Property Name="mobile_no" Type="Int32" Nullable="false" />
+          <Property Name="phone_no" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="setting_for" Type="Int32" Nullable="false" />
+          <Property Name="marks_copy_image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="jobalert" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="state">
+          <Key>
+            <PropertyRef Name="state_id" />
+          </Key>
+          <Property Name="state_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="state_code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="state_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="stream">
+          <Key>
+            <PropertyRef Name="stream_id" />
+          </Key>
+          <Property Name="stream_id" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stream_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DOB" Type="DateTime" Precision="3" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pincode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BatchYear" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedOn" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="sub_modules">
+          <Key>
+            <PropertyRef Name="sub_module_id" />
+          </Key>
+          <Property Name="sub_module_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="main_id" Type="Int32" Nullable="false" />
+          <Property Name="sub_module_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sub_module_code" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="subject_id" />
+          </Key>
+          <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject_category" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subject_type" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="graduation_id" Type="Byte" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="semester_id" Type="Byte" Nullable="false" />
+          <Property Name="syllabus_year_from" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="syllabus_year_to" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="internal_mark" Type="Byte" Nullable="false" />
+          <Property Name="internal_min_pass_mark" Type="Byte" Nullable="false" />
+          <Property Name="external_mark" Type="Byte" Nullable="false" />
+          <Property Name="external_min_pass_mark" Type="Byte" Nullable="false" />
+          <Property Name="subject_min_mark" Type="Byte" Nullable="false" />
+          <Property Name="subject_max_mark" Type="Byte" Nullable="false" />
+          <Property Name="subject_max_credits" Type="Byte" Nullable="false" />
+          <Property Name="active_status" Type="Byte" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="subject_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject_id" Type="Int32" Nullable="false" />
+          <Property Name="subject_code" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="semester_id" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subscription">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="support_complaints">
+          <Key>
+            <PropertyRef Name="complaint_id" />
+          </Key>
+          <Property Name="complaint_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="type_id" Type="Int16" Nullable="false" />
+          <Property Name="support_type_id" Type="Int32" Nullable="false" />
+          <Property Name="ticket_subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issue_code" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="issue_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="posted_on" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="update_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_updated_on" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="last_updated_by" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="support_type">
+          <Key>
+            <PropertyRef Name="support_type_id" />
+          </Key>
+          <Property Name="support_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="university">
+          <Key>
+            <PropertyRef Name="university_id" />
+          </Key>
+          <Property Name="university_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="university_code" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="university_type" Type="Int32" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="university_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_line1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_line2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pincode" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phone_no" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile_no" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="international_rank" Type="Int32" Nullable="false" />
+          <Property Name="national_rank" Type="Int32" Nullable="false" />
+          <Property Name="accreditation_type" Type="Int32" Nullable="false" />
+          <Property Name="accreditation_value" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAAC" Type="Int32" />
+          <Property Name="active_status" Type="Byte" Nullable="false" />
+          <Property Name="inactive_date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="university_course_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="course_code" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="university_department_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="department_code" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stream" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="university_type">
+          <Key>
+            <PropertyRef Name="type_id" />
+          </Key>
+          <Property Name="type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_access_rights">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="module_feature_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_type_id" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_activity_log">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_type" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="action_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="module" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datetime" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="user_admin">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="role_id" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_mapping">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="college_code" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="organization_id" Type="Int32" Nullable="false" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_members">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="member_id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int16" Nullable="false" />
+          <Property Name="email_verification" Type="Int16" Nullable="false" />
+          <Property Name="activation_key" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="activation_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="activated_till_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="last_login" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="logged_in_status" Type="Int32" Nullable="false" />
+          <Property Name="user_type" Type="Int16" Nullable="false" />
+          <Property Name="disable_status" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User_registration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email_id" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Profile_ActivationKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_type" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user_roles">
+          <Key>
+            <PropertyRef Name="role_id" />
+          </Key>
+          <Property Name="role_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_on" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email_id" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="address_line1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address_line2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="city_id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="country_id" Type="Int32" Nullable="false" />
+          <Property Name="pincode" Type="Int32" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_type" Type="Int32" Nullable="false" />
+          <Property Name="org_id" Type="Int32" Nullable="false" />
+          <Property Name="active_status" Type="Int16" Nullable="false" />
+          <Property Name="active_from" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="active_to" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="inactive_from" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="lock_account" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subject_mapping_settings">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="state_id" />
+            <PropertyRef Name="university_id" />
+            <PropertyRef Name="college_id" />
+            <PropertyRef Name="graduation_id" />
+            <PropertyRef Name="department_id" />
+            <PropertyRef Name="course_id" />
+            <PropertyRef Name="semester_id" />
+            <PropertyRef Name="min_sub_to_be_filled" />
+            <PropertyRef Name="max_sub_to_be_filled" />
+            <PropertyRef Name="max_sub_to_be_displayed" />
+            <PropertyRef Name="max_sub_to_be_mapped" />
+            <PropertyRef Name="max_elective_subject" />
+            <PropertyRef Name="max_core_subjects" />
+            <PropertyRef Name="max_allied_subjects" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="state_id" Type="Int32" Nullable="false" />
+          <Property Name="university_id" Type="Int32" Nullable="false" />
+          <Property Name="college_id" Type="Int32" Nullable="false" />
+          <Property Name="graduation_id" Type="Int16" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="course_id" Type="Int32" Nullable="false" />
+          <Property Name="semester_id" Type="Int16" Nullable="false" />
+          <Property Name="min_sub_to_be_filled" Type="Int16" Nullable="false" />
+          <Property Name="max_sub_to_be_filled" Type="Int16" Nullable="false" />
+          <Property Name="max_sub_to_be_displayed" Type="Int16" Nullable="false" />
+          <Property Name="max_sub_to_be_mapped" Type="Int16" Nullable="false" />
+          <Property Name="max_elective_subject" Type="Int16" Nullable="false" />
+          <Property Name="max_core_subjects" Type="Int16" Nullable="false" />
+          <Property Name="max_allied_subjects" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MeraRankDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accreditation_type" EntityType="Self.accreditation_type" />
+          <EntitySet Name="accreditation_value" EntityType="Self.accreditation_value" />
+          <EntitySet Name="activation_keys" EntityType="Self.activation_keys" />
+          <EntitySet Name="arrear_marks" EntityType="Self.arrear_marks" />
+          <EntitySet Name="boards" EntityType="Self.board" />
+          <EntitySet Name="cities" EntityType="Self.city" />
+          <EntitySet Name="cms" EntityType="Self.cm" />
+          <EntitySet Name="colleges" EntityType="Self.college" />
+          <EntitySet Name="countries" EntityType="Self.country" />
+          <EntitySet Name="courses" EntityType="Self.course" />
+          <EntitySet Name="course_mapping" EntityType="Self.course_mapping" />
+          <EntitySet Name="departments" EntityType="Self.department" />
+          <EntitySet Name="department_mapping" EntityType="Self.department_mapping" />
+          <EntitySet Name="events" EntityType="Self.event" />
+          <EntitySet Name="features" EntityType="Self.feature" />
+          <EntitySet Name="feedbacks" EntityType="Self.feedback" />
+          <EntitySet Name="grades" EntityType="Self.grade" />
+          <EntitySet Name="grade_scale" EntityType="Self.grade_scale" />
+          <EntitySet Name="graduations" EntityType="Self.graduation" />
+          <EntitySet Name="main_modules" EntityType="Self.main_modules" />
+          <EntitySet Name="marks" EntityType="Self.mark" />
+          <EntitySet Name="media" EntityType="Self.medium" />
+          <EntitySet Name="member_settings" EntityType="Self.member_settings" />
+          <EntitySet Name="members" EntityType="Self.member" />
+          <EntitySet Name="modules_features" EntityType="Self.modules_features" />
+          <EntitySet Name="MRCorporates" EntityType="Self.MRCorporate" />
+          <EntitySet Name="newsletters" EntityType="Self.newsletter" />
+          <EntitySet Name="organization_type" EntityType="Self.organization_type" />
+          <EntitySet Name="orgnizations" EntityType="Self.orgnization" />
+          <EntitySet Name="ranks" EntityType="Self.rank" />
+          <EntitySet Name="refered_emails" EntityType="Self.refered_emails" />
+          <EntitySet Name="searches" EntityType="Self.search" />
+          <EntitySet Name="search_terms" EntityType="Self.search_terms" />
+          <EntitySet Name="semesters" EntityType="Self.semester" />
+          <EntitySet Name="sslc_12th_marks" EntityType="Self.sslc_12th_marks" />
+          <EntitySet Name="sslc_12th_settings" EntityType="Self.sslc_12th_settings" />
+          <EntitySet Name="states" EntityType="Self.state" />
+          <EntitySet Name="streams" EntityType="Self.stream" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="sub_modules" EntityType="Self.sub_modules" />
+          <EntitySet Name="subjects" EntityType="Self.subject" />
+          <EntitySet Name="subject_mapping" EntityType="Self.subject_mapping" />
+          <EntitySet Name="subscriptions" EntityType="Self.subscription" />
+          <EntitySet Name="support_complaints" EntityType="Self.support_complaints" />
+          <EntitySet Name="support_type" EntityType="Self.support_type" />
+          <EntitySet Name="universities" EntityType="Self.university" />
+          <EntitySet Name="university_course_mapping" EntityType="Self.university_course_mapping" />
+          <EntitySet Name="university_department_mapping" EntityType="Self.university_department_mapping" />
+          <EntitySet Name="university_type" EntityType="Self.university_type" />
+          <EntitySet Name="user_access_rights" EntityType="Self.user_access_rights" />
+          <EntitySet Name="user_activity_log" EntityType="Self.user_activity_log" />
+          <EntitySet Name="user_admin" EntityType="Self.user_admin" />
+          <EntitySet Name="user_mapping" EntityType="Self.user_mapping" />
+          <EntitySet Name="user_members" EntityType="Self.user_members" />
+          <EntitySet Name="User_registration" EntityType="Self.User_registration" />
+          <EntitySet Name="user_roles" EntityType="Self.user_roles" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="subject_mapping_settings" EntityType="Self.subject_mapping_settings" />
+          <FunctionImport Name="pro_user_registration">
+            <Parameter Name="email_id" Mode="In" Type="String" />
+            <Parameter Name="first_name" Mode="In" Type="String" />
+            <Parameter Name="last_name" Mode="In" Type="String" />
+            <Parameter Name="user_type" Mode="In" Type="String" />
+            <Parameter Name="result" Mode="InOut" Type="String" />
+            <Parameter Name="activation_key" Mode="InOut" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MeraRankDBModelStoreContainer" CdmEntityContainer="MeraRankDBEntities">
+          <EntitySetMapping Name="accreditation_type">
+            <EntityTypeMapping TypeName="MeraRankDBModel.accreditation_type">
+              <MappingFragment StoreEntitySet="accreditation_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accreditation_value">
+            <EntityTypeMapping TypeName="MeraRankDBModel.accreditation_value">
+              <MappingFragment StoreEntitySet="accreditation_value">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="accreditation_value_name" ColumnName="accreditation_value_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="activation_keys">
+            <EntityTypeMapping TypeName="MeraRankDBModel.activation_keys">
+              <MappingFragment StoreEntitySet="activation_keys">
+                <ScalarProperty Name="key_id" ColumnName="key_id" />
+                <ScalarProperty Name="issued_user_id" ColumnName="issued_user_id" />
+                <ScalarProperty Name="activation_key" ColumnName="activation_key" />
+                <ScalarProperty Name="key_series" ColumnName="key_series" />
+                <ScalarProperty Name="key_value" ColumnName="key_value" />
+                <ScalarProperty Name="key_status" ColumnName="key_status" />
+                <ScalarProperty Name="remarks" ColumnName="remarks" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="activated_by" ColumnName="activated_by" />
+                <ScalarProperty Name="activated_on" ColumnName="activated_on" />
+                <ScalarProperty Name="activated_till" ColumnName="activated_till" />
+                <ScalarProperty Name="valid_days" ColumnName="valid_days" />
+                <ScalarProperty Name="is_activated" ColumnName="is_activated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="arrear_marks">
+            <EntityTypeMapping TypeName="MeraRankDBModel.arrear_marks">
+              <MappingFragment StoreEntitySet="arrear_marks">
+                <ScalarProperty Name="mark_id" ColumnName="mark_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="semester_id" ColumnName="semester_id" />
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="internal_mark" ColumnName="internal_mark" />
+                <ScalarProperty Name="external_mark" ColumnName="external_mark" />
+                <ScalarProperty Name="actual_mark" ColumnName="actual_mark" />
+                <ScalarProperty Name="isAbsent" ColumnName="isAbsent" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="modified_on" ColumnName="modified_on" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="boards">
+            <EntityTypeMapping TypeName="MeraRankDBModel.board">
+              <MappingFragment StoreEntitySet="board">
+                <ScalarProperty Name="board_id" ColumnName="board_id" />
+                <ScalarProperty Name="board_name" ColumnName="board_name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cities">
+            <EntityTypeMapping TypeName="MeraRankDBModel.city">
+              <MappingFragment StoreEntitySet="city">
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="city_code" ColumnName="city_code" />
+                <ScalarProperty Name="city_name" ColumnName="city_name" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cms">
+            <EntityTypeMapping TypeName="MeraRankDBModel.cm">
+              <MappingFragment StoreEntitySet="cms">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="seo_title" ColumnName="seo_title" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="modifiy_date" ColumnName="modifiy_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="colleges">
+            <EntityTypeMapping TypeName="MeraRankDBModel.college">
+              <MappingFragment StoreEntitySet="college">
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="college_code" ColumnName="college_code" />
+                <ScalarProperty Name="college_name" ColumnName="college_name" />
+                <ScalarProperty Name="college_type" ColumnName="college_type" />
+                <ScalarProperty Name="affiliated_to" ColumnName="affiliated_to" />
+                <ScalarProperty Name="address_line1" ColumnName="address_line1" />
+                <ScalarProperty Name="address_line2" ColumnName="address_line2" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="stream_id" ColumnName="stream_id" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="contact_name" ColumnName="contact_name" />
+                <ScalarProperty Name="international_rank" ColumnName="international_rank" />
+                <ScalarProperty Name="national_rank" ColumnName="national_rank" />
+                <ScalarProperty Name="accreditation_type" ColumnName="accreditation_type" />
+                <ScalarProperty Name="accreditation_value" ColumnName="accreditation_value" />
+                <ScalarProperty Name="NAAC" ColumnName="NAAC" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="countries">
+            <EntityTypeMapping TypeName="MeraRankDBModel.country">
+              <MappingFragment StoreEntitySet="country">
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="country_code" ColumnName="country_code" />
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+                <ScalarProperty Name="is_default" ColumnName="is_default" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="courses">
+            <EntityTypeMapping TypeName="MeraRankDBModel.course">
+              <MappingFragment StoreEntitySet="course">
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="course_code" ColumnName="course_code" />
+                <ScalarProperty Name="course_name" ColumnName="course_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="course_mapping">
+            <EntityTypeMapping TypeName="MeraRankDBModel.course_mapping">
+              <MappingFragment StoreEntitySet="course_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="course_code" ColumnName="course_code" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="MeraRankDBModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="department_code" ColumnName="department_code" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="stream" ColumnName="stream" />
+                <ScalarProperty Name="department_name" ColumnName="department_name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="department_mapping">
+            <EntityTypeMapping TypeName="MeraRankDBModel.department_mapping">
+              <MappingFragment StoreEntitySet="department_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="department_code" ColumnName="department_code" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="stream_id" ColumnName="stream_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="events">
+            <EntityTypeMapping TypeName="MeraRankDBModel.event">
+              <MappingFragment StoreEntitySet="event">
+                <ScalarProperty Name="event_id" ColumnName="event_id" />
+                <ScalarProperty Name="event_code" ColumnName="event_code" />
+                <ScalarProperty Name="event_name" ColumnName="event_name" />
+                <ScalarProperty Name="event_type" ColumnName="event_type" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="from_date" ColumnName="from_date" />
+                <ScalarProperty Name="to_date" ColumnName="to_date" />
+                <ScalarProperty Name="from_time" ColumnName="from_time" />
+                <ScalarProperty Name="to_time" ColumnName="to_time" />
+                <ScalarProperty Name="venue" ColumnName="venue" />
+                <ScalarProperty Name="institute_id" ColumnName="institute_id" />
+                <ScalarProperty Name="targeted_audience" ColumnName="targeted_audience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="features">
+            <EntityTypeMapping TypeName="MeraRankDBModel.feature">
+              <MappingFragment StoreEntitySet="features">
+                <ScalarProperty Name="feature_id" ColumnName="feature_id" />
+                <ScalarProperty Name="feature_name" ColumnName="feature_name" />
+                <ScalarProperty Name="feature_code" ColumnName="feature_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="feedbacks">
+            <EntityTypeMapping TypeName="MeraRankDBModel.feedback">
+              <MappingFragment StoreEntitySet="feedback">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+                <ScalarProperty Name="postedOn" ColumnName="postedOn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grades">
+            <EntityTypeMapping TypeName="MeraRankDBModel.grade">
+              <MappingFragment StoreEntitySet="grade">
+                <ScalarProperty Name="grade_id" ColumnName="grade_id" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="grade_scale" ColumnName="grade_scale" />
+                <ScalarProperty Name="grade_point" ColumnName="grade_point" />
+                <ScalarProperty Name="grade1" ColumnName="grade" />
+                <ScalarProperty Name="marks_from" ColumnName="marks_from" />
+                <ScalarProperty Name="marks_to" ColumnName="marks_to" />
+                <ScalarProperty Name="interpretation" ColumnName="interpretation" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="validate_from_date" ColumnName="validate_from_date" />
+                <ScalarProperty Name="validate_to_date" ColumnName="validate_to_date" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grade_scale">
+            <EntityTypeMapping TypeName="MeraRankDBModel.grade_scale">
+              <MappingFragment StoreEntitySet="grade_scale">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="grade_scale1" ColumnName="grade_scale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="graduations">
+            <EntityTypeMapping TypeName="MeraRankDBModel.graduation">
+              <MappingFragment StoreEntitySet="graduation">
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="graduation_name" ColumnName="graduation_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="main_modules">
+            <EntityTypeMapping TypeName="MeraRankDBModel.main_modules">
+              <MappingFragment StoreEntitySet="main_modules">
+                <ScalarProperty Name="main_module_id" ColumnName="main_module_id" />
+                <ScalarProperty Name="main_module_name" ColumnName="main_module_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marks">
+            <EntityTypeMapping TypeName="MeraRankDBModel.mark">
+              <MappingFragment StoreEntitySet="marks">
+                <ScalarProperty Name="mark_id" ColumnName="mark_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="semester_id" ColumnName="semester_id" />
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="internal_mark" ColumnName="internal_mark" />
+                <ScalarProperty Name="external_mark" ColumnName="external_mark" />
+                <ScalarProperty Name="actual_mark" ColumnName="actual_mark" />
+                <ScalarProperty Name="isAbsent" ColumnName="isAbsent" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="media">
+            <EntityTypeMapping TypeName="MeraRankDBModel.medium">
+              <MappingFragment StoreEntitySet="medium">
+                <ScalarProperty Name="medium_id" ColumnName="medium_id" />
+                <ScalarProperty Name="medium_name" ColumnName="medium_name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="member_settings">
+            <EntityTypeMapping TypeName="MeraRankDBModel.member_settings">
+              <MappingFragment StoreEntitySet="member_settings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="stream_id" ColumnName="stream_id" />
+                <ScalarProperty Name="year" ColumnName="year" />
+                <ScalarProperty Name="portfolio" ColumnName="portfolio" />
+                <ScalarProperty Name="jobalert" ColumnName="jobalert" />
+                <ScalarProperty Name="course_duration" ColumnName="course_duration" />
+                <ScalarProperty Name="year_of_completion" ColumnName="year_of_completion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="members">
+            <EntityTypeMapping TypeName="MeraRankDBModel.member">
+              <MappingFragment StoreEntitySet="members">
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="registration_no" ColumnName="registration_no" />
+                <ScalarProperty Name="registration_code" ColumnName="registration_code" />
+                <ScalarProperty Name="member_fname" ColumnName="member_fname" />
+                <ScalarProperty Name="member_lname" ColumnName="member_lname" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="permanent_address" ColumnName="permanent_address" />
+                <ScalarProperty Name="communication_address" ColumnName="communication_address" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="batch" ColumnName="batch" />
+                <ScalarProperty Name="referered_by" ColumnName="referered_by" />
+                <ScalarProperty Name="registered_on" ColumnName="registered_on" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="modules_features">
+            <EntityTypeMapping TypeName="MeraRankDBModel.modules_features">
+              <MappingFragment StoreEntitySet="modules_features">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="module_id" ColumnName="module_id" />
+                <ScalarProperty Name="feature_id" ColumnName="feature_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MRCorporates">
+            <EntityTypeMapping TypeName="MeraRankDBModel.MRCorporate">
+              <MappingFragment StoreEntitySet="MRCorporates">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="PostalZip" ColumnName="PostalZip" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="PasswordConfirm" ColumnName="PasswordConfirm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="newsletters">
+            <EntityTypeMapping TypeName="MeraRankDBModel.newsletter">
+              <MappingFragment StoreEntitySet="newsletter">
+                <ScalarProperty Name="newsletter_id" ColumnName="newsletter_id" />
+                <ScalarProperty Name="newsletter_title" ColumnName="newsletter_title" />
+                <ScalarProperty Name="newsletter1" ColumnName="newsletter" />
+                <ScalarProperty Name="newsletter_date" ColumnName="newsletter_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="organization_type">
+            <EntityTypeMapping TypeName="MeraRankDBModel.organization_type">
+              <MappingFragment StoreEntitySet="organization_type">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orgnizations">
+            <EntityTypeMapping TypeName="MeraRankDBModel.orgnization">
+              <MappingFragment StoreEntitySet="orgnization">
+                <ScalarProperty Name="org_id" ColumnName="org_id" />
+                <ScalarProperty Name="org_type" ColumnName="org_type" />
+                <ScalarProperty Name="org_name" ColumnName="org_name" />
+                <ScalarProperty Name="org_email" ColumnName="org_email" />
+                <ScalarProperty Name="org_phone" ColumnName="org_phone" />
+                <ScalarProperty Name="org_mobile" ColumnName="org_mobile" />
+                <ScalarProperty Name="address_line1" ColumnName="address_line1" />
+                <ScalarProperty Name="address_line2" ColumnName="address_line2" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="org_fax" ColumnName="org_fax" />
+                <ScalarProperty Name="org_website" ColumnName="org_website" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ranks">
+            <EntityTypeMapping TypeName="MeraRankDBModel.rank">
+              <MappingFragment StoreEntitySet="rank">
+                <ScalarProperty Name="row_num" ColumnName="row_num" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="refered_emails">
+            <EntityTypeMapping TypeName="MeraRankDBModel.refered_emails">
+              <MappingFragment StoreEntitySet="refered_emails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="refered_by" ColumnName="refered_by" />
+                <ScalarProperty Name="refered_to_name" ColumnName="refered_to_name" />
+                <ScalarProperty Name="refered_email" ColumnName="refered_email" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="refered_on" ColumnName="refered_on" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="searches">
+            <EntityTypeMapping TypeName="MeraRankDBModel.search">
+              <MappingFragment StoreEntitySet="search">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="term" ColumnName="term" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="search_terms">
+            <EntityTypeMapping TypeName="MeraRankDBModel.search_terms">
+              <MappingFragment StoreEntitySet="search_terms">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="module" ColumnName="module" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="term" ColumnName="term" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="semesters">
+            <EntityTypeMapping TypeName="MeraRankDBModel.semester">
+              <MappingFragment StoreEntitySet="semester">
+                <ScalarProperty Name="semester_id" ColumnName="semester_id" />
+                <ScalarProperty Name="semester_name" ColumnName="semester_name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sslc_12th_marks">
+            <EntityTypeMapping TypeName="MeraRankDBModel.sslc_12th_marks">
+              <MappingFragment StoreEntitySet="sslc_12th_marks">
+                <ScalarProperty Name="mark_id" ColumnName="mark_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="subject_code" ColumnName="subject_code" />
+                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+                <ScalarProperty Name="min_pass_mark" ColumnName="min_pass_mark" />
+                <ScalarProperty Name="max_mark" ColumnName="max_mark" />
+                <ScalarProperty Name="marks_scored" ColumnName="marks_scored" />
+                <ScalarProperty Name="mark_for" ColumnName="mark_for" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sslc_12th_settings">
+            <EntityTypeMapping TypeName="MeraRankDBModel.sslc_12th_settings">
+              <MappingFragment StoreEntitySet="sslc_12th_settings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="board_id" ColumnName="board_id" />
+                <ScalarProperty Name="medium_id" ColumnName="medium_id" />
+                <ScalarProperty Name="year_of_pass" ColumnName="year_of_pass" />
+                <ScalarProperty Name="year_of_complete" ColumnName="year_of_complete" />
+                <ScalarProperty Name="school_name" ColumnName="school_name" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="setting_for" ColumnName="setting_for" />
+                <ScalarProperty Name="marks_copy_image" ColumnName="marks_copy_image" />
+                <ScalarProperty Name="jobalert" ColumnName="jobalert" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="states">
+            <EntityTypeMapping TypeName="MeraRankDBModel.state">
+              <MappingFragment StoreEntitySet="state">
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="state_code" ColumnName="state_code" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="state_name" ColumnName="state_name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="streams">
+            <EntityTypeMapping TypeName="MeraRankDBModel.stream">
+              <MappingFragment StoreEntitySet="stream">
+                <ScalarProperty Name="stream_id" ColumnName="stream_id" />
+                <ScalarProperty Name="stream_name" ColumnName="stream_name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="MeraRankDBModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="BatchYear" ColumnName="BatchYear" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sub_modules">
+            <EntityTypeMapping TypeName="MeraRankDBModel.sub_modules">
+              <MappingFragment StoreEntitySet="sub_modules">
+                <ScalarProperty Name="sub_module_id" ColumnName="sub_module_id" />
+                <ScalarProperty Name="main_id" ColumnName="main_id" />
+                <ScalarProperty Name="sub_module_name" ColumnName="sub_module_name" />
+                <ScalarProperty Name="sub_module_code" ColumnName="sub_module_code" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subjects">
+            <EntityTypeMapping TypeName="MeraRankDBModel.subject">
+              <MappingFragment StoreEntitySet="subject">
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="subject_code" ColumnName="subject_code" />
+                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+                <ScalarProperty Name="subject_category" ColumnName="subject_category" />
+                <ScalarProperty Name="subject_type" ColumnName="subject_type" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="semester_id" ColumnName="semester_id" />
+                <ScalarProperty Name="syllabus_year_from" ColumnName="syllabus_year_from" />
+                <ScalarProperty Name="syllabus_year_to" ColumnName="syllabus_year_to" />
+                <ScalarProperty Name="internal_mark" ColumnName="internal_mark" />
+                <ScalarProperty Name="internal_min_pass_mark" ColumnName="internal_min_pass_mark" />
+                <ScalarProperty Name="external_mark" ColumnName="external_mark" />
+                <ScalarProperty Name="external_min_pass_mark" ColumnName="external_min_pass_mark" />
+                <ScalarProperty Name="subject_min_mark" ColumnName="subject_min_mark" />
+                <ScalarProperty Name="subject_max_mark" ColumnName="subject_max_mark" />
+                <ScalarProperty Name="subject_max_credits" ColumnName="subject_max_credits" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subject_mapping">
+            <EntityTypeMapping TypeName="MeraRankDBModel.subject_mapping">
+              <MappingFragment StoreEntitySet="subject_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+                <ScalarProperty Name="subject_code" ColumnName="subject_code" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="semester_id" ColumnName="semester_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subscriptions">
+            <EntityTypeMapping TypeName="MeraRankDBModel.subscription">
+              <MappingFragment StoreEntitySet="subscription">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="support_complaints">
+            <EntityTypeMapping TypeName="MeraRankDBModel.support_complaints">
+              <MappingFragment StoreEntitySet="support_complaints">
+                <ScalarProperty Name="complaint_id" ColumnName="complaint_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="support_type_id" ColumnName="support_type_id" />
+                <ScalarProperty Name="ticket_subject" ColumnName="ticket_subject" />
+                <ScalarProperty Name="issue_code" ColumnName="issue_code" />
+                <ScalarProperty Name="issue_description" ColumnName="issue_description" />
+                <ScalarProperty Name="posted_on" ColumnName="posted_on" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="update_notes" ColumnName="update_notes" />
+                <ScalarProperty Name="last_updated_on" ColumnName="last_updated_on" />
+                <ScalarProperty Name="last_updated_by" ColumnName="last_updated_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="support_type">
+            <EntityTypeMapping TypeName="MeraRankDBModel.support_type">
+              <MappingFragment StoreEntitySet="support_type">
+                <ScalarProperty Name="support_type_id" ColumnName="support_type_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="universities">
+            <EntityTypeMapping TypeName="MeraRankDBModel.university">
+              <MappingFragment StoreEntitySet="university">
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="university_code" ColumnName="university_code" />
+                <ScalarProperty Name="university_type" ColumnName="university_type" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="university_name" ColumnName="university_name" />
+                <ScalarProperty Name="address_line1" ColumnName="address_line1" />
+                <ScalarProperty Name="address_line2" ColumnName="address_line2" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="phone_no" ColumnName="phone_no" />
+                <ScalarProperty Name="mobile_no" ColumnName="mobile_no" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="contact_name" ColumnName="contact_name" />
+                <ScalarProperty Name="international_rank" ColumnName="international_rank" />
+                <ScalarProperty Name="national_rank" ColumnName="national_rank" />
+                <ScalarProperty Name="accreditation_type" ColumnName="accreditation_type" />
+                <ScalarProperty Name="accreditation_value" ColumnName="accreditation_value" />
+                <ScalarProperty Name="NAAC" ColumnName="NAAC" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="inactive_date" ColumnName="inactive_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="university_course_mapping">
+            <EntityTypeMapping TypeName="MeraRankDBModel.university_course_mapping">
+              <MappingFragment StoreEntitySet="university_course_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="course_code" ColumnName="course_code" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="university_department_mapping">
+            <EntityTypeMapping TypeName="MeraRankDBModel.university_department_mapping">
+              <MappingFragment StoreEntitySet="university_department_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="department_code" ColumnName="department_code" />
+                <ScalarProperty Name="stream" ColumnName="stream" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="university_type">
+            <EntityTypeMapping TypeName="MeraRankDBModel.university_type">
+              <MappingFragment StoreEntitySet="university_type">
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_access_rights">
+            <EntityTypeMapping TypeName="MeraRankDBModel.user_access_rights">
+              <MappingFragment StoreEntitySet="user_access_rights">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="module_feature_code" ColumnName="module_feature_code" />
+                <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_activity_log">
+            <EntityTypeMapping TypeName="MeraRankDBModel.user_activity_log">
+              <MappingFragment StoreEntitySet="user_activity_log">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="action_description" ColumnName="action_description" />
+                <ScalarProperty Name="module" ColumnName="module" />
+                <ScalarProperty Name="datetime" ColumnName="datetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_admin">
+            <EntityTypeMapping TypeName="MeraRankDBModel.user_admin">
+              <MappingFragment StoreEntitySet="user_admin">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_mapping">
+            <EntityTypeMapping TypeName="MeraRankDBModel.user_mapping">
+              <MappingFragment StoreEntitySet="user_mapping">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="college_code" ColumnName="college_code" />
+                <ScalarProperty Name="organization_id" ColumnName="organization_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_members">
+            <EntityTypeMapping TypeName="MeraRankDBModel.user_members">
+              <MappingFragment StoreEntitySet="user_members">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="email_verification" ColumnName="email_verification" />
+                <ScalarProperty Name="activation_key" ColumnName="activation_key" />
+                <ScalarProperty Name="activation_date" ColumnName="activation_date" />
+                <ScalarProperty Name="activated_till_date" ColumnName="activated_till_date" />
+                <ScalarProperty Name="last_login" ColumnName="last_login" />
+                <ScalarProperty Name="logged_in_status" ColumnName="logged_in_status" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+                <ScalarProperty Name="disable_status" ColumnName="disable_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_registration">
+            <EntityTypeMapping TypeName="MeraRankDBModel.User_registration">
+              <MappingFragment StoreEntitySet="User_registration">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Profile_ActivationKey" ColumnName="Profile_ActivationKey" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_roles">
+            <EntityTypeMapping TypeName="MeraRankDBModel.user_roles">
+              <MappingFragment StoreEntitySet="user_roles">
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="created_on" ColumnName="created_on" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="MeraRankDBModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email_id" ColumnName="email_id" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="address_line1" ColumnName="address_line1" />
+                <ScalarProperty Name="address_line2" ColumnName="address_line2" />
+                <ScalarProperty Name="city_id" ColumnName="city_id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="country_id" ColumnName="country_id" />
+                <ScalarProperty Name="pincode" ColumnName="pincode" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="org_type" ColumnName="org_type" />
+                <ScalarProperty Name="org_id" ColumnName="org_id" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="active_from" ColumnName="active_from" />
+                <ScalarProperty Name="active_to" ColumnName="active_to" />
+                <ScalarProperty Name="inactive_from" ColumnName="inactive_from" />
+                <ScalarProperty Name="lock_account" ColumnName="lock_account" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subject_mapping_settings">
+            <EntityTypeMapping TypeName="MeraRankDBModel.subject_mapping_settings">
+              <MappingFragment StoreEntitySet="subject_mapping_settings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="state_id" ColumnName="state_id" />
+                <ScalarProperty Name="university_id" ColumnName="university_id" />
+                <ScalarProperty Name="college_id" ColumnName="college_id" />
+                <ScalarProperty Name="graduation_id" ColumnName="graduation_id" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="course_id" ColumnName="course_id" />
+                <ScalarProperty Name="semester_id" ColumnName="semester_id" />
+                <ScalarProperty Name="min_sub_to_be_filled" ColumnName="min_sub_to_be_filled" />
+                <ScalarProperty Name="max_sub_to_be_filled" ColumnName="max_sub_to_be_filled" />
+                <ScalarProperty Name="max_sub_to_be_displayed" ColumnName="max_sub_to_be_displayed" />
+                <ScalarProperty Name="max_sub_to_be_mapped" ColumnName="max_sub_to_be_mapped" />
+                <ScalarProperty Name="max_elective_subject" ColumnName="max_elective_subject" />
+                <ScalarProperty Name="max_core_subjects" ColumnName="max_core_subjects" />
+                <ScalarProperty Name="max_allied_subjects" ColumnName="max_allied_subjects" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pro_user_registration" FunctionName="MeraRankDBModel.Store.pro_user_registration" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
